@@ -3,3 +3,5 @@ __pycache__
 .env
 env
 test_db.db
+fastenv
+logfile
