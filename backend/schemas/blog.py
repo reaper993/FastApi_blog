@@ -9,9 +9,15 @@ class CreateBlog(BaseModel):
 
     @model_validator(mode="before")
     def generate_slug(cls, values):
-        if values.get("title"):
+        if values.get("title") and not values.get("slug"):
             values["slug"] = values.get("title").replace(" ", "-").lower()
         return values
+
+class UpdateBlog(CreateBlog):
+    pass
+
+class DeleteBlog(BaseModel):
+    pass
 
 class ShowBlog(BaseModel):
     title: str
